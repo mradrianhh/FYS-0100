@@ -9,12 +9,10 @@ def func(x, mu_s):
     return (m*g) / (np.sin(x) + mu_s * np.cos(x))
 
 thetas = np.linspace(0, pi/2, 100)
-frictions = np.linspace(0, 1, 100)
-forces = func(thetas, 0.6)
 
-forces = func(thetas, frictions)
-
-plt.plot(thetas, frictions, forces)
+plt.plot(thetas, func(thetas, 0.6), label = "0.6")
+plt.plot(thetas, func(thetas, 0.3), label = "0.3")
 plt.xlabel("Theta")
 plt.ylabel("Force")
+plt.legend()
 plt.show()
